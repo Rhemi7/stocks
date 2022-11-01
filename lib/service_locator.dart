@@ -4,6 +4,7 @@ import 'package:stock_data/features/data/repository/stock_repository_implementat
 import 'package:stock_data/features/domain/repository/get_stock_repository.dart';
 import 'package:stock_data/features/domain/usecases/get_stocks.dart';
 import 'package:http/http.dart' as http;
+import 'package:stock_data/features/domain/usecases/get_stocks_in_range.dart';
 
 GetIt sl = GetIt.instance;
 
@@ -16,5 +17,7 @@ Future<void> setUpLocator() async {
   sl.registerLazySingleton<StockRepository>(() => StockRepositoryImpl(sl()));
 
   sl.registerLazySingleton<GetStocks>(() => GetStocks(sl()));
+
+  sl.registerLazySingleton<GetStocksInRange>(() => GetStocksInRange(sl()));
 
 }

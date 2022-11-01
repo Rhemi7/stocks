@@ -16,7 +16,7 @@ class AppTextfield extends StatelessWidget {
       child: TextField(
         controller: searchController,
         onChanged: onChanged,
-        autofocus: true,
+        autofocus: false,
         decoration: InputDecoration(
             // border: InputBorder.none,
             fillColor: Colors.white,
