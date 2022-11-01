@@ -50,6 +50,7 @@ dependencies:
   #  Internet connection checker is used to check data connection on device
   internet_connection_checker: ^0.0.1+4
   connectivity_plus: ^3.0.2
+  fluttertoast: ^8.1.1
 
 
 

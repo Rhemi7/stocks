@@ -1,5 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:stock_data/features/presentation/screens/home_screen.dart';
@@ -29,15 +30,13 @@ class _MyAppState extends State<MyApp> {
     Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) async {
-      // Got a new connectivity status!
-      // if(result == ConnectivityResult.) {
-      //   print("no internet");
-      // } else {
-      //   print("connected");
-      // }
-
       isDeviceConnected = await InternetConnectionChecker().hasConnection;
-      print(isDeviceConnected);
+      if (!isDeviceConnected) {
+        Fluttertoast.showToast(
+            msg: "Network Unavailable",
+            toastLength: Toast.LENGTH_SHORT,
+            backgroundColor: Colors.black);
+      }
     });
   }
 
