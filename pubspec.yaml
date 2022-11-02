@@ -49,8 +49,11 @@ dependencies:
   hooks_riverpod: ^1.0.4
   #  Internet connection checker is used to check data connection on device
   internet_connection_checker: ^0.0.1+4
+  #   Used to listening to network availability
   connectivity_plus: ^3.0.2
+  #   Displays notification
   fluttertoast: ^8.1.1
+  #   Used to format date
   date_format:
 
 

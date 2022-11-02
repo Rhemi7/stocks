@@ -1,5 +1,6 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stock_data/constants/const.dart';
 import 'package:stock_data/features/presentation/widget/app_textfield.dart';
@@ -16,7 +17,7 @@ class _DateRangeScreenState extends ConsumerState<DateRangeScreen> {
   String? from = "";
   String? to = "";
 
-  String? groupValue;
+  String? groupValue = "";
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +95,7 @@ class _DateRangeScreenState extends ConsumerState<DateRangeScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: AppButton(groupValue: groupValue, from: from, to: to),
+                child: AppButton(groupValue: groupValue!, from: from!, to: to!),
               )
             ],
           ),
@@ -112,27 +113,32 @@ class AppButton extends StatelessWidget {
     required this.to,
   }) : super(key: key);
 
-  final String? groupValue;
-  final String? from;
-  final String? to;
+  final String groupValue;
+  final String from;
+  final String to;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => StockScreen(
-                    symbol: groupValue!, from: from!, to: to!)));
+        if (groupValue.isEmpty || from.isEmpty || to.isEmpty) {
+          Fluttertoast.showToast(
+              msg: "A required field is empty",
+              toastLength: Toast.LENGTH_SHORT,
+              backgroundColor: Colors.black);
+        } else {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      StockScreen(symbol: groupValue, from: from, to: to)));
+        }
       },
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.blue),
+            borderRadius: BorderRadius.circular(15), color: Colors.blue),
         child: const Padding(
-          padding:
-              EdgeInsets.symmetric(vertical: 15.0, horizontal: 16),
+          padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 16),
           child: Center(
               child: Text(
             "Continue",
