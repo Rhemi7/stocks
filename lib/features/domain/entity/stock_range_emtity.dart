@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+import '../../data/model/pagination.dart';
 import '../../data/model/stock_range_response.dart';
 
 class StockRangeEntity extends Equatable{

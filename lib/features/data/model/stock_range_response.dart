@@ -5,6 +5,7 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
+import 'package:stock_data/features/data/model/pagination.dart';
 import 'package:stock_data/features/domain/entity/stock_range_emtity.dart';
 
 StockRangeResponse stockRangeResponseFromJson(String str) =>
@@ -85,36 +86,4 @@ class RangeStockData extends Equatable{
   @override
   // TODO: implement props
   List<Object?> get props => [open, high, low, last, close, volume, date, symbol, exchange];
-}
-
-class Pagination extends Equatable{
-  Pagination({
-    this.limit,
-    this.offset,
-    this.count,
-    this.total,
-  });
-
-  final int? limit;
-  final int? offset;
-  final int? count;
-  final int? total;
-
-  factory Pagination.fromJson(Map<String, dynamic> json) => Pagination(
-        limit: json["limit"],
-        offset: json["offset"],
-        count: json["count"],
-        total: json["total"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "limit": limit,
-        "offset": offset,
-        "count": count,
-        "total": total,
-      };
-
-  @override
-  // TODO: implement props
-  List<Object?> get props => [limit, offset, count, total];
 }

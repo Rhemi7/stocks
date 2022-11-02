@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:stock_data/features/data/model/stock_response.dart';
 
+import '../../data/model/pagination.dart';
+
 class StockEntity extends Equatable{
   StockEntity({
     this.pagination,

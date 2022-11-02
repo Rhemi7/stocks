@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:stock_data/features/data/model/pagination.dart';
 import 'package:stock_data/features/data/model/stock_range_response.dart';
 import '../../../data/data_reader.dart';
 
