@@ -4,13 +4,16 @@
 
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+import 'package:stock_data/features/domain/entity/stock_range_emtity.dart';
+
 StockRangeResponse stockRangeResponseFromJson(String str) =>
     StockRangeResponse.fromJson(json.decode(str));
 
 String stockRangeResponseToJson(StockRangeResponse data) =>
     json.encode(data.toJson());
 
-class StockRangeResponse {
+class StockRangeResponse extends StockRangeEntity{
   StockRangeResponse({
     this.pagination,
     this.data,
@@ -32,7 +35,7 @@ class StockRangeResponse {
       };
 }
 
-class RangeStockData {
+class RangeStockData extends Equatable{
   RangeStockData({
     this.open,
     this.high,
@@ -78,9 +81,13 @@ class RangeStockData {
         "symbol": symbol,
         "exchange": exchange,
       };
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [open, high, low, last, close, volume, date, symbol, exchange];
 }
 
-class Pagination {
+class Pagination extends Equatable{
   Pagination({
     this.limit,
     this.offset,
@@ -106,4 +113,8 @@ class Pagination {
         "count": count,
         "total": total,
       };
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [limit, offset, count, total];
 }

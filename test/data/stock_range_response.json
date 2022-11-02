@@ -18,13 +18,13 @@
       "exchange": "IEXG"
     },
     {
-      "open": 317.81,
-      "high": 318.56,
-      "low": 317.81,
+      "open": 318.17,
+      "high": 319.135,
+      "low": 317.32,
       "last": null,
-      "close": 318.08,
+      "close": 318.7,
       "volume": null,
-      "date": "2020-05-22T22:00:00+0000",
+      "date": "2020-05-22T23:00:00+0000",
       "symbol": "AAPL",
       "exchange": "IEXG"
     }
