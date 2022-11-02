@@ -20,7 +20,7 @@ class CacheException implements Exception {}
 String mapFailureToMessage(Failure failure) {
   switch (failure.runtimeType) {
     case ServerFailure:
-      return 'Maximum quota has been exceeded.\nPlease try again tomorrow';
+      return 'Maximum quota has been exceeded for the month';
     case CacheFailure:
       return 'No internet connection';
     default:

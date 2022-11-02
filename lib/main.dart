@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:stock_data/features/presentation/screens/dashboard.dart';
+import 'package:stock_data/features/presentation/screens/date_range_screen.dart';
 import 'package:stock_data/features/presentation/screens/home_screen.dart';
 import 'service_locator.dart' as di;
 

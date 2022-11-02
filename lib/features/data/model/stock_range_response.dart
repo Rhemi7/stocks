@@ -4,9 +4,11 @@
 
 import 'dart:convert';
 
-StockRangeResponse stockRangeResponseFromJson(String str) => StockRangeResponse.fromJson(json.decode(str));
+StockRangeResponse stockRangeResponseFromJson(String str) =>
+    StockRangeResponse.fromJson(json.decode(str));
 
-String stockRangeResponseToJson(StockRangeResponse data) => json.encode(data.toJson());
+String stockRangeResponseToJson(StockRangeResponse data) =>
+    json.encode(data.toJson());
 
 class StockRangeResponse {
   StockRangeResponse({
@@ -17,15 +19,17 @@ class StockRangeResponse {
   final Pagination? pagination;
   final List<RangeStockData>? data;
 
-  factory StockRangeResponse.fromJson(Map<String, dynamic> json) => StockRangeResponse(
-    pagination: Pagination.fromJson(json["pagination"]),
-    data: List<RangeStockData>.from(json["data"].map((x) => RangeStockData.fromJson(x))),
-  );
+  factory StockRangeResponse.fromJson(Map<String, dynamic> json) =>
+      StockRangeResponse(
+        pagination: Pagination.fromJson(json["pagination"]),
+        data: List<RangeStockData>.from(
+            json["data"].map((x) => RangeStockData.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "pagination": pagination!.toJson(),
-    "data": List<dynamic>.from(data!.map((x) => x.toJson())),
-  };
+        "pagination": pagination!.toJson(),
+        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+      };
 }
 
 class RangeStockData {
@@ -41,41 +45,40 @@ class RangeStockData {
     this.exchange,
   });
 
-  final double? open;
-  final double? high;
-  final double? low;
+  final num? open;
+  final num? high;
+  final num? low;
   final dynamic last;
-  final double? close;
+  final num? close;
   final dynamic volume;
   final String? date;
-  final Symbol? symbol;
+  final String? symbol;
   final String? exchange;
 
   factory RangeStockData.fromJson(Map<String, dynamic> json) => RangeStockData(
-    open: json["open"].toDouble(),
-    high: json["high"].toDouble(),
-    low: json["low"].toDouble(),
-    last: json["last"],
-    close: json["close"].toDouble(),
-    volume: json["volume"],
-    date: json["date"],
-    symbol: json["symbol"],
-    exchange: json["exchange"],
-  );
+        open: json["open"] == null ? null : json["open"].toDouble(),
+        high: json["high"] == null ? null : json["high"].toDouble(),
+        low: json["low"] == null ? null : json["low"].toDouble(),
+        last: json["last"] == null ? null : json["last"].toDouble(),
+        close: json["close"] == null ? null : json["close"].toDouble(),
+        volume: json["volume"] == null ? null : json["volume"],
+        date: json["date"],
+        symbol: json["symbol"],
+        exchange: json["exchange"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "open": open,
-    "high": high,
-    "low": low,
-    "last": last,
-    "close": close,
-    "volume": volume,
-    "date": date,
-    "symbol": symbol,
-    "exchange": exchange,
-  };
+        "open": open,
+        "high": high,
+        "low": low,
+        "last": last,
+        "close": close,
+        "volume": volume,
+        "date": date,
+        "symbol": symbol,
+        "exchange": exchange,
+      };
 }
-
 
 class Pagination {
   Pagination({
@@ -86,23 +89,21 @@ class Pagination {
   });
 
   final int? limit;
-  final int ?offset;
-  final int ?count;
-  final int ?total;
+  final int? offset;
+  final int? count;
+  final int? total;
 
   factory Pagination.fromJson(Map<String, dynamic> json) => Pagination(
-    limit: json["limit"],
-    offset: json["offset"],
-    count: json["count"],
-    total: json["total"],
-  );
+        limit: json["limit"],
+        offset: json["offset"],
+        count: json["count"],
+        total: json["total"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "limit": limit,
-    "offset": offset,
-    "count": count,
-    "total": total,
-  };
+        "limit": limit,
+        "offset": offset,
+        "count": count,
+        "total": total,
+      };
 }
-
-

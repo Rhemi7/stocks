@@ -7,6 +7,6 @@ import '../../data/model/stock_range_response.dart';
 abstract class StockRepository {
 
   Future<Either<Failure, StockResponse>> getStock();
-  Future<Either<Failure, StockRangeResponse>> getStockInRange();
+  Future<Either<Failure, StockRangeResponse>> getStockInRange({required String symbol, required String from, required String to});
 
 }

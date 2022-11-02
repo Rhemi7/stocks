@@ -10,7 +10,7 @@ class GetStocksInRange extends UseCase<StockRangeResponse, RangeParams> {
   GetStocksInRange(this.stockRepository);
   @override
   Future<Either<Failure, StockRangeResponse>> call(RangeParams params) async {
-    return stockRepository.getStockInRange().then((value) => value);
+    return stockRepository.getStockInRange(from: params.from!, to: params.to!, symbol: params.symbols!).then((value) => value);
   }
 }
 

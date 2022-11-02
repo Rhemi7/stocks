@@ -20,14 +20,16 @@ class StockRepositoryImpl implements StockRepository {
   }
 
   @override
-  Future<Either<Failure, StockRangeResponse>> getStockInRange() async {
+  Future<Either<Failure, StockRangeResponse>> getStockInRange(
+      {required String symbol,
+      required String from,
+      required String to}) async {
     try {
-      final remoteStocks = await remoteDataSource.getStockInRange();
+      final remoteStocks = await remoteDataSource.getStockInRange(
+          from: from, to: to, symbols: symbol);
       return Right(remoteStocks);
     } on ServerException {
       return Left(ServerFailure());
     }
   }
-
-
 }

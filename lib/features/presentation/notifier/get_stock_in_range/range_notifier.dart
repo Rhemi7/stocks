@@ -6,17 +6,22 @@ import '../../../../core/error/failure.dart';
 
 class GetStockRangeNotifier extends StateNotifier<GetStockRangeState> {
   GetStocksInRange getStocksRange;
-  GetStockRangeNotifier(this.getStocksRange) : super(const GetStockRangeInitial());
+  GetStockRangeNotifier(this.getStocksRange)
+      : super(const GetStockRangeInitial());
 
-  getStock() async {
+  getStockRange(
+      {required String symbol,
+      required String to,
+      required String from}) async {
     state = const GetStockRangeLoading();
 
-    var result = await getStocksRange(RangeParams());
+    var result = await getStocksRange(RangeParams(
+      from: from, to: to, symbols: symbol
+    ));
     result.fold((failure) {
       state = GetStockRangeError(message: mapFailureToMessage(failure));
     }, (r) {
       state = GetStockRangeLoaded(data: r.data);
-
     });
   }
 
