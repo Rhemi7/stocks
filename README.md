@@ -1,3 +1,5 @@
+[![Dart](https://github.com/Rhemi7/stocks/actions/workflows/main.yml/badge.svg)](https://github.com/Rhemi7/stocks/actions/workflows/main.yml)
+
 # stocks
 A mobile application that interacts with a stock market data API
 
@@ -65,4 +67,21 @@ Folder Structure
 | Flutter toast | Displays notification |
 | Date format | Used to format date |
      
+     
+ 
+ 
+ ## APK
+For the APK of the project:
+
+- [Click here](https://drive.google.com/file/d/1YDIEhmJvtoK73MgUnH7kD56Y2BmhU_tD/view?usp=share_link)
+
+## Build for iOS and Android
+For the Builds of the project:
+
+- [Click here](https://drive.google.com/drive/folders/16hmJMCYTFON1HpF5GDbzwyl47bFHVtZM?usp=share_link)
+
+
+## Note
+Please note that Access key expires after a maximum of 100 quotas monthly
+
     
