@@ -4,12 +4,16 @@
 
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+
+import '../../domain/entity/stock_entity.dart';
+
 StockResponse stockResponseFromJson(String str) =>
     StockResponse.fromJson(json.decode(str));
 
 String stockResponseToJson(StockResponse data) => json.encode(data.toJson());
 
-class StockResponse {
+class StockResponse extends StockEntity {
   StockResponse({
     this.pagination,
     this.data,
@@ -20,7 +24,8 @@ class StockResponse {
 
   factory StockResponse.fromJson(Map<String, dynamic> json) => StockResponse(
         pagination: Pagination.fromJson(json["pagination"]),
-        data: List<StockData>.from(json["data"].map((x) => StockData.fromJson(x))),
+        data: List<StockData>.from(
+            json["data"].map((x) => StockData.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -29,7 +34,7 @@ class StockResponse {
       };
 }
 
-class StockData {
+class StockData extends Equatable {
   StockData({
     this.open,
     this.high,
@@ -99,9 +104,29 @@ class StockData {
         "exchange": exchange,
         "date": date,
       };
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [
+        open,
+        high,
+        low,
+        close,
+        volume,
+        adjClose,
+        adjHigh,
+        adjLow,
+        adjOpen,
+        adjVolume,
+        dividend,
+        symbol,
+        exchange,
+        date,
+    splitFactor
+      ];
 }
 
-class Pagination {
+class Pagination extends Equatable{
   Pagination({
     this.limit,
     this.offset,
@@ -127,4 +152,8 @@ class Pagination {
         "count": count,
         "total": total,
       };
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [limit, offset, count, total];
 }
