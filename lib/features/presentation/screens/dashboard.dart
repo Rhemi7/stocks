@@ -15,7 +15,7 @@ class _DashboardState extends State<Dashboard> {
 
   static List<Widget> widgetOptions = <Widget>[
     const HomeScreen(),
-    DateRangeScreen(),
+    const DateRangeScreen(),
   ];
 
   void _onTapped(int index) {

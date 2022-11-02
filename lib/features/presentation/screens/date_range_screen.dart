@@ -94,32 +94,50 @@ class _DateRangeScreenState extends ConsumerState<DateRangeScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => StockScreen(
-                                symbol: groupValue!, from: from!, to: to!)));
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.blue),
-                    child: const Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15.0, horizontal: 16),
-                      child: Center(
-                          child: Text(
-                        "Continue",
-                        style: TextStyle(color: Colors.white),
-                      )),
-                    ),
-                  ),
-                ),
+                child: AppButton(groupValue: groupValue, from: from, to: to),
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class AppButton extends StatelessWidget {
+  const AppButton({
+    Key? key,
+    required this.groupValue,
+    required this.from,
+    required this.to,
+  }) : super(key: key);
+
+  final String? groupValue;
+  final String? from;
+  final String? to;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => StockScreen(
+                    symbol: groupValue!, from: from!, to: to!)));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.blue),
+        child: const Padding(
+          padding:
+              EdgeInsets.symmetric(vertical: 15.0, horizontal: 16),
+          child: Center(
+              child: Text(
+            "Continue",
+            style: TextStyle(color: Colors.white),
+          )),
         ),
       ),
     );

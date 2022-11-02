@@ -53,8 +53,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: AppTextfield(
-                  hint: "Search",
-                    controller: searchController, onChanged: (val) {}),
+                    hint: "Search",
+                    controller: searchController,
+                    onChanged: (val) {}),
               ),
               searchController.text.isNotEmpty
                   ? Expanded(
@@ -85,8 +86,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   .toList(),
                             );
                           } else if (state is GetStockError) {
-                            return const Center(
-                              child: Text("An error occurred"),
+                            return Center(
+                              child: Text(state.message),
                             );
                           }
                           return const SizedBox.shrink();
@@ -100,5 +101,3 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 }
-
-

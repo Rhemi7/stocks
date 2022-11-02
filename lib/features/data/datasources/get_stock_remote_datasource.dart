@@ -20,11 +20,9 @@ class GetStockRemoteDatasourceImpl implements GetStockRemoteDataSource {
         Uri.parse(
             '$baseUrl/eod/latest?access_key=$apikey&symbols=${symbols.join(",")}'),
         headers: headers);
-    print(response.body);
 
     if (response.statusCode.toString().startsWith("2")) {
       var stockResponse = stockResponseFromJson(response.body);
-      print(stockResponse);
       return stockResponse;
     } else {
       throw ServerException();
@@ -38,12 +36,10 @@ class GetStockRemoteDatasourceImpl implements GetStockRemoteDataSource {
         Uri.parse(
             '$baseUrl/intraday?access_key=$apikey&symbols=$symbols&date_from=$from&date_to=$to'),
         headers: headers);
-    print(response.body);
 
 
     if (response.statusCode.toString().startsWith("2")) {
       var stockResponse = stockRangeResponseFromJson(response.body);
-      print(stockResponse);
 
       return stockResponse;
     } else {
