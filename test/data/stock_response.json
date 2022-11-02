@@ -1,0 +1,61 @@
+{
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 3,
+    "total": 3
+  },
+  "data": [
+    {
+      "open": 155.08,
+      "high": 155.45,
+      "low": 149.14,
+      "close": 150.65,
+      "volume": 80379345.0,
+      "adj_high": 155.45,
+      "adj_low": 149.13,
+      "adj_close": 150.65,
+      "adj_open": 155.08,
+      "adj_volume": 80379345.0,
+      "split_factor": 1.0,
+      "dividend": 0.0,
+      "symbol": "AAPL",
+      "exchange": "XNAS",
+      "date": "2022-11-01T00:00:00+0000"
+    },
+    {
+      "open": 234.6,
+      "high": 235.74,
+      "low": 227.325,
+      "close": 228.17,
+      "volume": 30592271.0,
+      "adj_high": 235.74,
+      "adj_low": 227.325,
+      "adj_close": 228.17,
+      "adj_open": 234.6,
+      "adj_volume": 30592271.0,
+      "split_factor": 1.0,
+      "dividend": 0.0,
+      "symbol": "MSFT",
+      "exchange": "XNAS",
+      "date": "2022-11-01T00:00:00+0000"
+    },
+    {
+      "open": 296.17,
+      "high": 299.7,
+      "low": 286.42,
+      "close": 286.75,
+      "volume": 6916424.0,
+      "adj_high": 299.7,
+      "adj_low": 286.42,
+      "adj_close": 286.75,
+      "adj_open": 296.17,
+      "adj_volume": 6916424.0,
+      "split_factor": 1.0,
+      "dividend": 0.0,
+      "symbol": "NFLX",
+      "exchange": "XNAS",
+      "date": "2022-11-01T00:00:00+0000"
+    }
+  ]
+}
